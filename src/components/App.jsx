@@ -32,7 +32,7 @@ export const App = () => {
     const nameValue = form.elements[0].value;
     const number = form.elements[1].value;
     dispatch(addContact(nameValue,number))
-    
+    form.reset()
   };
 
   // const filterUsers = e => {

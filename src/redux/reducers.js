@@ -29,28 +29,4 @@ export const rootReducer = (state = initialState, action)=>{
     }
   
 }
-// export const rootReducer = (state = initialState, action) => {
-//     switch (action.type) {
-//         case 'cotnact/addContact':
-//             console.log('cze')
-//             return {
-//                 ...state, contacts: [...state.contacts, action.payload]
-//             };
-//         default
-        
-//         // case 'contact/deleteContact':
-//         //    console.log('czes')
-//         //     state.contacts.map(contact => {
-//         //         console.log(contact)
-//         //     let index = state.contacts.indexOf(contact);
 
-//         //  if (contact.id === action.payload.id.id) {
-             
-             
-//         //         return {...state,contacts:[...state.contacts.splice(index,1)]}
-//         //  }
-//         // })
-//     }
-    
-  
-// }
