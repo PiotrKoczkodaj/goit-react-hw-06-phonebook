@@ -1,12 +1,24 @@
 import { nanoid } from "@reduxjs/toolkit";
 
-export const addContact = {
-    type: 'contact/addContact',
+export const addContact = (name,number) => {
+
+   return { type: 'contact/addContact',
     payload: {
     id: nanoid(),
-    name: 'RSDADAD',
-    number: '459-12-565'
- }
+    name: name,
+    number: number
+ }}
+   
+}
+
+
+export const deleteContact = (contactId) => {
+    return {
+        type: 'contact/deleteContact',
+        payload: {
+            id:contactId
+        }
+    }
 }
 
 // const setFilter = {

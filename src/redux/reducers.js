@@ -10,11 +10,47 @@ const initialState =  {
     filter: '',
 };
 
+
 export const rootReducer = (state = initialState, action)=>{
     
-    if (action.type==='contact/addContact') {
-        return {
-            ...state,contacts:[...state.contacts,action.payload]
-        }
+    switch (action.type) {
+        case 'contact/addContact':
+             
+             return {
+                 ...state, contacts: [...state.contacts, action.payload]
+            };
+        case 'contact/deleteContact':
+            
+            let newContacts = state.contacts.filter((contact) => contact.id !== action.payload.id.id);
+            return {
+                ...state,contacts:[...newContacts]
+            }
+    
     }
+  
 }
+// export const rootReducer = (state = initialState, action) => {
+//     switch (action.type) {
+//         case 'cotnact/addContact':
+//             console.log('cze')
+//             return {
+//                 ...state, contacts: [...state.contacts, action.payload]
+//             };
+//         default
+        
+//         // case 'contact/deleteContact':
+//         //    console.log('czes')
+//         //     state.contacts.map(contact => {
+//         //         console.log(contact)
+//         //     let index = state.contacts.indexOf(contact);
+
+//         //  if (contact.id === action.payload.id.id) {
+             
+             
+//         //         return {...state,contacts:[...state.contacts.splice(index,1)]}
+//         //  }
+//         // })
+//     }
+    
+  
+// }

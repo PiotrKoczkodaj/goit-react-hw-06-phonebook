@@ -2,8 +2,7 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { nanoid } from 'nanoid';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
-import { useEffect } from 'react';
-import { store } from 'redux/store';
+
 
 
 import { useDispatch } from "react-redux";
@@ -32,7 +31,7 @@ export const App = () => {
     const form = e.currentTarget;
     const nameValue = form.elements[0].value;
     const number = form.elements[1].value;
-    dispatch(addContact)
+    dispatch(addContact(nameValue,number))
     
   };
 
