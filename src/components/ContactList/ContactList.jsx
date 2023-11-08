@@ -1,14 +1,30 @@
 import { nanoid } from 'nanoid';
-import PropTypes from 'prop-types';
+import { getContacts } from 'redux/selectors';
+import { useSelector } from 'react-redux';
 
 
-export const ContactList = ({ filter, contacts, setContacts }) => {
+export const ContactList = () => {
 
- 
-console.log(contacts)
+ const contacts = useSelector(getContacts);
+  console.log(contacts)
   return (
     <div>
-      {contacts
+      {contacts.map(contact => (
+          <p key={nanoid()}>
+            {contact.name}
+            {''}
+            {contact.number}
+            <button
+              
+              value={contact.name}
+            >
+              delete
+            </button>
+          </p>
+      ))
+      
+      
+      /* {contacts
         .filter(contact => contact.name.toLowerCase().includes(filter))
         .map(contact => (
           <p key={nanoid()}>
@@ -29,12 +45,7 @@ console.log(contacts)
               delete
             </button>
           </p>
-        ))}
+        ))} */}
     </div>
   );
-};
-ContactList.propTypes = {
-  filter: PropTypes.string.isRequired,
-  contacts: PropTypes.array.isRequired,
-  setContacts: PropTypes.func.isRequired,
 };

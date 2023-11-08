@@ -4,10 +4,8 @@ export const Filter = ({ filterUsers }) => {
   return (
     <form>
       <label>Find contact</label>
-      <input onChange={filterUsers}></input>
+      <input></input>
     </form>
   );
 };
-Filter.propTypes = {
-  filterUsers: PropTypes.func.isRequired,
-};
+
