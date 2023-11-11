@@ -1,16 +1,20 @@
 import { nanoid } from 'nanoid';
 import { getContacts } from 'redux/selectors';
 import { useSelector,useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/actions';
+import { deleteContact } from 'redux/contactsSlice/contactsSlice';
+
 
 export const ContactList = () => {
+  let contacts = useSelector(getContacts)
+  console.log(contacts)
   const dispatch = useDispatch();
 
   const handleClick = (e) => {
-      dispatch(deleteContact(e.target))
+    
+    const contactId = e.target.id;
+   
+        dispatch(deleteContact(contactId))
   }
-  
- const contacts = useSelector(getContacts);
   
   return (
     <div>

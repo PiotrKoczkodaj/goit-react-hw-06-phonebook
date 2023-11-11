@@ -2,11 +2,11 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { nanoid } from 'nanoid';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
-
+import { addContact } from 'redux/contactsSlice/contactsSlice';
 
 
 import { useDispatch } from "react-redux";
-import { addContact } from '../redux/actions';
+
 
 
 export const App = () => {

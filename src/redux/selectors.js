@@ -1,3 +1,2 @@
-import { initialState } from "./store";
+export const getContacts = (state) => state.contacts
 
-export const getContacts = (state=initialState )=> state.contacts;
