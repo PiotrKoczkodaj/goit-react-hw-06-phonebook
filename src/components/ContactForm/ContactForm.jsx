@@ -1,20 +1,17 @@
-import PropTypes from 'prop-types';
 import { addContact } from 'redux/contactsSlice/contactsSlice';
 import { useDispatch } from 'react-redux';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  
- const handleSubmit = e => {
 
+  const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
     const nameValue = form.elements[0].value;
     const number = form.elements[1].value;
-    dispatch(addContact(nameValue,number))
-    form.reset()
+    dispatch(addContact(nameValue, number));
+    form.reset();
   };
-
 
   return (
     <form onSubmit={handleSubmit}>
@@ -38,4 +35,3 @@ export const ContactForm = () => {
     </form>
   );
 };
-

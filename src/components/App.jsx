@@ -1,33 +1,19 @@
 import { ContactForm } from './ContactForm/ContactForm';
-import { nanoid } from 'nanoid';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
-import { addContact } from 'redux/contactsSlice/contactsSlice';
-import { useDispatch } from "react-redux";
-
-
+import { useSelector } from 'react-redux';
+import { getContacts } from 'redux/selectors';
+import { useEffect } from 'react';
 
 export const App = () => {
-  const dispatch = useDispatch();
-  // useEffect(() => {
-  //   if (localStorage.getItem('Persons') === null) {
-  //     localStorage.setItem('Persons', JSON.stringify(contacts));
-  //   } else {
-  //     setContacts(JSON.parse(localStorage.getItem('Persons')))
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // },[]);
   
-//  useEffect(() => {
-//       localStorage.setItem('Persons', JSON.stringify(contacts));
-//   },[contacts]);
-  
+  const contactss = useSelector(getContacts);
 
- 
-  // const filterUsers = e => {
-  //   setFilter((filter = e.target.value.toLowerCase()));
-  // };
-  
+  useEffect(() => {
+    localStorage.setItem("Persons",JSON.stringify(contactss))
+   },[contactss])
+
+
   return (
     <div
       style={{
@@ -44,7 +30,7 @@ export const App = () => {
       <ContactForm />
       <h2>Contacts</h2>
       <Filter />
-      <ContactList/>
+      <ContactList />
     </div>
   );
 };
