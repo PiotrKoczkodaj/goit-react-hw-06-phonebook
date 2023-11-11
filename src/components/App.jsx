@@ -3,8 +3,6 @@ import { nanoid } from 'nanoid';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { addContact } from 'redux/contactsSlice/contactsSlice';
-
-
 import { useDispatch } from "react-redux";
 
 
@@ -25,16 +23,7 @@ export const App = () => {
 //   },[contacts]);
   
 
-  const handleSubmit = e => {
-
-    e.preventDefault();
-    const form = e.currentTarget;
-    const nameValue = form.elements[0].value;
-    const number = form.elements[1].value;
-    dispatch(addContact(nameValue,number))
-    form.reset()
-  };
-
+ 
   // const filterUsers = e => {
   //   setFilter((filter = e.target.value.toLowerCase()));
   // };
@@ -52,7 +41,7 @@ export const App = () => {
       }}
     >
       <h2>Phonebook</h2>
-      <ContactForm handleSubmit={handleSubmit} />
+      <ContactForm />
       <h2>Contacts</h2>
       <Filter />
       <ContactList/>

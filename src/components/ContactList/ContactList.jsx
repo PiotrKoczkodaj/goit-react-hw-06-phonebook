@@ -2,23 +2,25 @@ import { nanoid } from 'nanoid';
 import { getContacts } from 'redux/selectors';
 import { useSelector,useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contactsSlice/contactsSlice';
-
+import { getFilter } from 'redux/selectors';
 
 export const ContactList = () => {
+
   let contacts = useSelector(getContacts)
-  console.log(contacts)
+  let filterValue = useSelector(getFilter)
+  
   const dispatch = useDispatch();
 
   const handleClick = (e) => {
-    
     const contactId = e.target.id;
-   
-        dispatch(deleteContact(contactId))
+      dispatch(deleteContact(contactId))
   }
-  
+
+  const filteredContacts = contacts.filter(contact => contact.name.includes(filterValue));
+
   return (
     <div>
-      {contacts.map(contact => (
+      {filteredContacts.map(contact => (
           <p key={nanoid()}>
             {contact.name}
             {''}
@@ -31,30 +33,7 @@ export const ContactList = () => {
             </button>
           </p>
       ))
-      
-      
-      /* {contacts
-        .filter(contact => contact.name.toLowerCase().includes(filter))
-        .map(contact => (
-          <p key={nanoid()}>
-            {contact.name}
-            {''}
-            {contact.number}
-            <button
-              onClick={e => {
-            
-                setContacts(contacts.filter(contact => contact.name !== e.target.value
-                ))
-           
-                
-            
-              }}
-              value={contact.name}
-            >
-              delete
-            </button>
-          </p>
-        ))} */}
+      }
     </div>
   );
 };
