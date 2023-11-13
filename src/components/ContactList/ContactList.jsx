@@ -6,8 +6,14 @@ import { getFilter } from 'redux/selectors';
 
 export const ContactList = () => {
   let contacts = useSelector(getContacts);
+
+  if (localStorage.lenght === 0) {
+    localStorage.setItem('Persons', JSON.stringify(contacts));
+  }
+
   let filterValue = useSelector(getFilter);
   const dispatch = useDispatch();
+
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filterValue)
   );
