@@ -7,12 +7,7 @@ import { useEffect } from 'react';
 
 export const App = () => {
   
-  const contactss = useSelector(getContacts);
-
-  useEffect(() => {
-    localStorage.setItem("Persons",JSON.stringify(contactss))
-   },[contactss])
-
+ 
 
   return (
     <div
